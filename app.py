@@ -15,5 +15,9 @@ def get_signed():
 def security_dispatch():
     return make_response(jsonify({"security":True,"enctype":"AES536","enc":"Military-Grade Encryption"}))
 
+@app.route('/monitoring')
+def monitor_logs():
+    return make_response(jsonify({"monitor_type":"prometheus","log_store":"azure analytics workspace","dashboard_type":"grafana"}))
+
 if __name__ == "__main__":
     app.run()
