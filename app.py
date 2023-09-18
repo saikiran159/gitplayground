@@ -9,7 +9,7 @@ def get_request():
 
 @app.route('/signer')
 def get_signed():
-    return make_response(jsonify({"name":"saikiran","age":26,"auth":False,"isvaliduser":True}),202)
+    return make_response(jsonify({"name":"saikiran","age":26,"auth":False,"isvaliduser":True,"authkey":"ckf439furcnkfehr8393xcjnsk","expiresin":"10m"}),202)
 
 if __name__ == "__main__":
     app.run()
