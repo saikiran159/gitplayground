@@ -1,1 +1,3 @@
-# gitplayground
+# Sample instructions
+
+# Life is fantastic!!
