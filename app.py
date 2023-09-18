@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import make_response,jsonify
+from flask import make_response,jsonify,request
 
 app = Flask(__name__)
 
@@ -18,6 +18,13 @@ def security_dispatch():
 @app.route('/monitoring')
 def monitor_logs():
     return make_response(jsonify({"monitor_type":"prometheus","log_store":"azure analytics workspace","dashboard_type":"grafana"}))
+
+@app.route("/signature",methods=["POST"])
+def validate_signature():
+    if request.headers.get("Content-Type",None) == "application/json":
+        return make_response(jsonify({"accepted":True,"user":"saikiran"}),200)
+    else:
+        return make_response(jsonify({"accepted":False,"user":"Unknown"}),303)
 
 if __name__ == "__main__":
     app.run()
